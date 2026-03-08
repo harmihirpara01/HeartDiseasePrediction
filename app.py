@@ -6,15 +6,7 @@ import plotly.express as px
 
 
 
-import os
-import time
-from google.genai.errors import ServerError
 
-
-
-client = genai.Client(api_key=st.secrets["GEMINI_API_KEY"])
-
-MODEL_NAME = "models/gemini-flash-latest"
 
 
 # ===================== SESSION STATE INIT ===================== #
@@ -531,31 +523,7 @@ elif page == "Test":
 
 
     # ---------------- LIVE TEST ---------------- #
-    def generate_cardiology_report(prompt: str) -> str:
-        response = client.models.generate_content(
-            model=MODEL_NAME,
-            contents=prompt
-        )
-        return response.text
-    
-    def generate_cardiology_report(prompt):
-        for attempt in range(3):  # try 3 times
-            try:
-                response = client.models.generate_content(
-                    model=MODEL_NAME,
-                    contents=prompt
-                )
-                return response.text
-            except ServerError:
-                time.sleep(2)  # wait 2 seconds and retry
-
-        return "⚠️ AI service is currently busy. Please try again after some time."
-    
-    def build_prompt(user_data, proba):
-        risk_percent = round(proba[1] * 100, 2)
-        risk_label = "HIGH RISK" if proba[1] > 0.5 else "LOW RISK"
-
-        return f"""
+   
     You are a medical AI assistant.
 
     Patient Information:
