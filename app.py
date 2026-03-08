@@ -4,7 +4,7 @@ import pandas as pd
 import pickle
 import plotly.express as px
 
-from google import genai
+
 
 import os
 import time
