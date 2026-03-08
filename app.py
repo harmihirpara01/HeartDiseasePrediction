@@ -522,31 +522,6 @@ elif page == "Test":
 
 
 
-    # ---------------- LIVE TEST ---------------- #
-   
-    You are a medical AI assistant.
-
-    Patient Information:
-    - Age: {user_data['age_year']} years
-    - Gender: {user_data['gender']}
-    - BMI: {user_data['BMI']}
-    - Blood Pressure: {user_data['ap_hi']}/{user_data['ap_lo']}
-    - Cholesterol: {user_data['cholesterol']}
-    - Glucose: {user_data['gluc']}
-    - Smoking: {user_data['smoke']}
-    - Physical Activity: {user_data['active']}
-
-    ML Model Output:
-    - Cardiovascular Risk: {risk_label}
-    - Probability: {risk_percent}%
-
-    Write a professional cardiology report including:
-    1. Risk interpretation
-    2. Key contributing factors
-    3. Lifestyle recommendations
-    4. Medical disclaimer (educational only)
-    """
-
     
 
     with tab2:
@@ -617,14 +592,12 @@ elif page == "Test":
             )
 
             st.markdown(f"""
-            <div class='card'>
-            st.markdown(f"📏 BMI: **{BMI}** → {bmi_status}")
-            <br>
-            💓 Pulse Pressure: **{pulse_pressure}**  
-            <br>
-            🩸 Hypertension: **{"Yes" if hypertension else "No"}**
-            </div>
-            """, unsafe_allow_html=True)
+<div class='card'>
+📏 <b>BMI:</b> {BMI} → {bmi_status}<br><br>
+💓 <b>Pulse Pressure:</b> {pulse_pressure}<br><br>
+🩸 <b>Hypertension:</b> {"Yes" if hypertension else "No"}
+</div>
+""", unsafe_allow_html=True)
 
             chart = pd.DataFrame({
                 "Type": ["No Disease", "Disease"],
