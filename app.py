@@ -618,7 +618,7 @@ elif page == "Test":
 
             st.markdown(f"""
             <div class='card'>
-            📏 BMI: **{BMI}** → {bmi_status}  
+            st.markdown(f"📏 BMI: **{BMI}** → {bmi_status}")
             <br>
             💓 Pulse Pressure: **{pulse_pressure}**  
             <br>
